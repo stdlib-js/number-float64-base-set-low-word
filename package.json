@@ -1,6 +1,6 @@
 {
   "name": "@stdlib/number-float64-base-set-low-word",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Set the less significant 32 bits of a double-precision floating-point number.",
   "license": "Apache-2.0",
   "author": {
