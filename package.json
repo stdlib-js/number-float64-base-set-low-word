@@ -1,0 +1,44 @@
+{
+  "name": "@stdlib/number-float64-base-set-low-word",
+  "version": "0.0.0",
+  "description": "Set the less significant 32 bits of a double-precision floating-point number.",
+  "license": "Apache-2.0",
+  "type": "module",
+  "main": "./mod.js",
+  "homepage": "https://stdlib.io",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/stdlib-js/number-float64-base-set-low-word.git"
+  },
+  "bugs": {
+    "url": "https://github.com/stdlib-js/stdlib/issues"
+  },
+  "keywords": [
+    "stdlib",
+    "stdtypes",
+    "base",
+    "utilities",
+    "utility",
+    "utils",
+    "util",
+    "types",
+    "type",
+    "float64",
+    "floating-point",
+    "float",
+    "double",
+    "dbl",
+    "words",
+    "word",
+    "low",
+    "set",
+    "significand",
+    "mantissa",
+    "fraction",
+    "ieee754"
+  ],
+  "funding": {
+    "type": "patreon",
+    "url": "https://www.patreon.com/athan"
+  }
+}
