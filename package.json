@@ -44,7 +44,8 @@
     "@stdlib/array-uint32": "^0.0.x",
     "@stdlib/assert-is-little-endian": "^0.0.x",
     "@stdlib/number-float64-base-to-words": "^0.0.x",
-    "@stdlib/utils-library-manifest": "^0.0.x"
+    "@stdlib/utils-library-manifest": "^0.0.x",
+    "@stdlib/error-tools-fmtprodmsg": "^0.0.x"
   },
   "devDependencies": {
     "@stdlib/assert-is-node": "^0.0.x",
