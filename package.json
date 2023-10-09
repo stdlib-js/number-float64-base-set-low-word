@@ -1,6 +1,6 @@
 {
   "name": "@stdlib/number-float64-base-set-low-word",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Set the less significant 32 bits of a double-precision floating-point number.",
   "license": "Apache-2.0",
   "author": {
@@ -40,10 +40,10 @@
     "url": "https://github.com/stdlib-js/stdlib/issues"
   },
   "dependencies": {
-    "@stdlib/array-float64": "^0.1.0",
-    "@stdlib/array-uint32": "^0.1.0",
-    "@stdlib/assert-is-little-endian": "^0.1.0",
-    "@stdlib/number-float64-base-to-words": "^0.1.0",
+    "@stdlib/array-float64": "^0.1.1",
+    "@stdlib/array-uint32": "^0.1.1",
+    "@stdlib/assert-is-little-endian": "^0.1.1",
+    "@stdlib/number-float64-base-to-words": "^0.1.1",
     "@stdlib/utils-library-manifest": "^0.1.1"
   },
   "devDependencies": {
