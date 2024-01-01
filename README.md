@@ -35,30 +35,14 @@ limitations under the License.
 
 > Set the less significant 32 bits of a [double-precision floating-point number][ieee754].
 
-<section class="installation">
 
-## Installation
-
-```bash
-npm install @stdlib/number-float64-base-set-low-word
-```
-
-Alternatively,
-
--   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm` branch][esm-url].
--   If you are using Deno, visit the [`deno` branch][deno-url].
--   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd` branch][umd-url].
-
-The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
-
-</section>
 
 <section class="usage">
 
 ## Usage
 
 ```javascript
-var setLowWord = require( '@stdlib/number-float64-base-set-low-word' );
+import setLowWord from 'https://cdn.jsdelivr.net/gh/stdlib-js/number-float64-base-set-low-word@deno/mod.js';
 ```
 
 #### setLowWord( x, low )
@@ -77,8 +61,8 @@ var y = setLowWord( x, low ); // => 0 11010011100 01001000001011000011 000000000
 Setting the lower order bits of `NaN` or positive or negative `infinity` will return `NaN`, as `NaN` is [defined][ieee754] as a `double` whose exponent bit sequence is all ones and whose fraction can be any bit sequence **except** all zeros. Positive and negative `infinity` are [defined][ieee754] as `doubles` with an exponent bit sequence equal to all ones and a fraction equal to all zeros. Hence, changing the less significant bits of positive and negative `infinity` converts each value to `NaN`.
 
 ```javascript
-var PINF = require( '@stdlib/constants-float64-pinf' );
-var NINF = require( '@stdlib/constants-float64-ninf' );
+import PINF from 'https://cdn.jsdelivr.net/gh/stdlib-js/constants-float64-pinf@deno/mod.js';
+import NINF from 'https://cdn.jsdelivr.net/gh/stdlib-js/constants-float64-ninf@deno/mod.js';
 
 var low = 12345678;
 
@@ -103,11 +87,11 @@ y = setLowWord( NaN, low );
 <!-- eslint no-undef: "error" -->
 
 ```javascript
-var pow = require( '@stdlib/math-base-special-pow' );
-var round = require( '@stdlib/math-base-special-round' );
-var randu = require( '@stdlib/random-base-randu' );
-var MAX_UINT32 = require( '@stdlib/constants-uint32-max' );
-var setLowWord = require( '@stdlib/number-float64-base-set-low-word' );
+import pow from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-pow@deno/mod.js';
+import round from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-round@deno/mod.js';
+import randu from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-randu@deno/mod.js';
+import MAX_UINT32 from 'https://cdn.jsdelivr.net/gh/stdlib-js/constants-uint32-max@deno/mod.js';
+import setLowWord from 'https://cdn.jsdelivr.net/gh/stdlib-js/number-float64-base-set-low-word@deno/mod.js';
 
 var frac;
 var exp;
@@ -135,94 +119,7 @@ for ( i = 0; i < 100; i++ ) {
 
 <!-- C interface documentation. -->
 
-* * *
 
-<section class="c">
-
-## C APIs
-
-<!-- Section to include introductory text. Make sure to keep an empty line after the intro `section` element and another before the `/section` close. -->
-
-<section class="intro">
-
-</section>
-
-<!-- /.intro -->
-
-<!-- C usage documentation. -->
-
-<section class="usage">
-
-### Usage
-
-```c
-#include "stdlib/number/float64/base/set_low_word.h"
-```
-
-#### stdlib_base_float64_set_low_word( low, \*x )
-
-Sets the less significant 32 bits of a double-precision floating-point number.
-
-```c
-#include <stdint.h>
-
-uint32_t low = 1374389537;
-double x = 3.14;
-
-stdlib_base_float64_set_low_word( low, &x );
-```
-
-The function accepts the following arguments:
-
--   **low**: `[in] uint32_t` lower order word.
--   **x**: `[in-out] double*` reference to (and destination for) a double-precision floating-point number.
-
-```c
-void stdlib_base_float64_set_low_word( const uint32_t low, double *x );
-```
-
-</section>
-
-<!-- /.usage -->
-
-<!-- C API usage notes. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
-
-<section class="notes">
-
-</section>
-
-<!-- /.notes -->
-
-<!-- C API usage examples. -->
-
-<section class="examples">
-
-### Examples
-
-```c
-#include "stdlib/number/float64/base/set_low_word.h"
-#include <stdint.h>
-#include <stdio.h>
-
-int main( void ) {
-    uint32_t low[] = { 1374389535, 1374389545, 1374389555, 1374389565 };
-    double x = 3.14;
-
-    int i;
-    for ( i = 0; i < 4; i++ ) {
-        stdlib_base_float64_set_low_word( low[ i ], &x );
-        printf( "low: %u => %.15lf\n", low[ i ], x );
-    }
-}
-```
-
-</section>
-
-<!-- /.examples -->
-
-</section>
-
-<!-- /.c -->
 
 <!-- Section for related `stdlib` packages. Do not manually edit this section, as it is automatically populated. -->
 
@@ -248,7 +145,7 @@ int main( void ) {
 
 ## Notice
 
-This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+This package is part of [stdlib][stdlib], a standard library with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
 
 For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
 
@@ -312,9 +209,9 @@ Copyright &copy; 2016-2024. The Stdlib [Authors][stdlib-authors].
 
 <!-- <related-links> -->
 
-[@stdlib/number/float64/base/get-low-word]: https://github.com/stdlib-js/number-float64-base-get-low-word
+[@stdlib/number/float64/base/get-low-word]: https://github.com/stdlib-js/number-float64-base-get-low-word/tree/deno
 
-[@stdlib/number/float64/base/set-high-word]: https://github.com/stdlib-js/number-float64-base-set-high-word
+[@stdlib/number/float64/base/set-high-word]: https://github.com/stdlib-js/number-float64-base-set-high-word/tree/deno
 
 <!-- </related-links> -->
 
