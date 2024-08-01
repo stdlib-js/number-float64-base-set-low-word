@@ -35,19 +35,32 @@ limitations under the License.
 
 > Set the less significant 32 bits of a [double-precision floating-point number][ieee754].
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/number-float64-base-set-low-word
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm`][esm-url] branch (see [README][esm-readme]).
+-   If you are using Deno, visit the [`deno`][deno-url] branch (see [README][deno-readme] for usage intructions).
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd`][umd-url] branch (see [README][umd-readme]).
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+To view installation and usage instructions specific to each branch build, be sure to explicitly navigate to the respective README files on each branch, as linked to above.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
 ```javascript
-import setLowWord from 'https://cdn.jsdelivr.net/gh/stdlib-js/number-float64-base-set-low-word@esm/index.mjs';
-```
-The previous example will load the latest bundled code from the esm branch. Alternatively, you may load a specific version by loading the file from one of the [tagged bundles](https://github.com/stdlib-js/number-float64-base-set-low-word/tags). For example,
-
-```javascript
-import setLowWord from 'https://cdn.jsdelivr.net/gh/stdlib-js/number-float64-base-set-low-word@v0.2.2-esm/index.mjs';
+var setLowWord = require( '@stdlib/number-float64-base-set-low-word' );
 ```
 
 #### setLowWord( x, low )
@@ -66,8 +79,8 @@ var y = setLowWord( x, low ); // => 0 11010011100 01001000001011000011 000000000
 Setting the lower order bits of `NaN` or positive or negative `infinity` will return `NaN`, as `NaN` is [defined][ieee754] as a `double` whose exponent bit sequence is all ones and whose fraction can be any bit sequence **except** all zeros. Positive and negative `infinity` are [defined][ieee754] as `doubles` with an exponent bit sequence equal to all ones and a fraction equal to all zeros. Hence, changing the less significant bits of positive and negative `infinity` converts each value to `NaN`.
 
 ```javascript
-import PINF from 'https://cdn.jsdelivr.net/gh/stdlib-js/constants-float64-pinf@esm/index.mjs';
-import NINF from 'https://cdn.jsdelivr.net/gh/stdlib-js/constants-float64-ninf@esm/index.mjs';
+var PINF = require( '@stdlib/constants-float64-pinf' );
+var NINF = require( '@stdlib/constants-float64-ninf' );
 
 var low = 12345678;
 
@@ -91,17 +104,12 @@ y = setLowWord( NaN, low );
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="module">
-
-import pow from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-pow@esm/index.mjs';
-import round from 'https://cdn.jsdelivr.net/gh/stdlib-js/math-base-special-round@esm/index.mjs';
-import randu from 'https://cdn.jsdelivr.net/gh/stdlib-js/random-base-randu@esm/index.mjs';
-import MAX_UINT32 from 'https://cdn.jsdelivr.net/gh/stdlib-js/constants-uint32-max@esm/index.mjs';
-import setLowWord from 'https://cdn.jsdelivr.net/gh/stdlib-js/number-float64-base-set-low-word@esm/index.mjs';
+```javascript
+var pow = require( '@stdlib/math-base-special-pow' );
+var round = require( '@stdlib/math-base-special-round' );
+var randu = require( '@stdlib/random-base-randu' );
+var MAX_UINT32 = require( '@stdlib/constants-uint32-max' );
+var setLowWord = require( '@stdlib/number-float64-base-set-low-word' );
 
 var frac;
 var exp;
@@ -121,10 +129,6 @@ for ( i = 0; i < 100; i++ ) {
     y = setLowWord( x, low );
     console.log( 'x: %d. new low word: %d. y: %d.', x, low, y );
 }
-
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -133,7 +137,94 @@ for ( i = 0; i < 100; i++ ) {
 
 <!-- C interface documentation. -->
 
+* * *
 
+<section class="c">
+
+## C APIs
+
+<!-- Section to include introductory text. Make sure to keep an empty line after the intro `section` element and another before the `/section` close. -->
+
+<section class="intro">
+
+</section>
+
+<!-- /.intro -->
+
+<!-- C usage documentation. -->
+
+<section class="usage">
+
+### Usage
+
+```c
+#include "stdlib/number/float64/base/set_low_word.h"
+```
+
+#### stdlib_base_float64_set_low_word( low, \*x )
+
+Sets the less significant 32 bits of a double-precision floating-point number.
+
+```c
+#include <stdint.h>
+
+uint32_t low = 1374389537;
+double x = 3.14;
+
+stdlib_base_float64_set_low_word( low, &x );
+```
+
+The function accepts the following arguments:
+
+-   **low**: `[in] uint32_t` lower order word.
+-   **x**: `[in-out] double*` reference to (and destination for) a double-precision floating-point number.
+
+```c
+void stdlib_base_float64_set_low_word( const uint32_t low, double *x );
+```
+
+</section>
+
+<!-- /.usage -->
+
+<!-- C API usage notes. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
+
+<section class="notes">
+
+</section>
+
+<!-- /.notes -->
+
+<!-- C API usage examples. -->
+
+<section class="examples">
+
+### Examples
+
+```c
+#include "stdlib/number/float64/base/set_low_word.h"
+#include <stdint.h>
+#include <stdio.h>
+
+int main( void ) {
+    uint32_t low[] = { 1374389535, 1374389545, 1374389555, 1374389565 };
+    double x = 3.14;
+
+    int i;
+    for ( i = 0; i < 4; i++ ) {
+        stdlib_base_float64_set_low_word( low[ i ], &x );
+        printf( "low: %u => %.15lf\n", low[ i ], x );
+    }
+}
+```
+
+</section>
+
+<!-- /.examples -->
+
+</section>
+
+<!-- /.c -->
 
 <!-- Section for related `stdlib` packages. Do not manually edit this section, as it is automatically populated. -->
 
@@ -159,7 +250,7 @@ for ( i = 0; i < 100; i++ ) {
 
 ## Notice
 
-This package is part of [stdlib][stdlib], a standard library with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
 
 For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
 
@@ -189,8 +280,8 @@ Copyright &copy; 2016-2024. The Stdlib [Authors][stdlib-authors].
 [npm-image]: http://img.shields.io/npm/v/@stdlib/number-float64-base-set-low-word.svg
 [npm-url]: https://npmjs.org/package/@stdlib/number-float64-base-set-low-word
 
-[test-image]: https://github.com/stdlib-js/number-float64-base-set-low-word/actions/workflows/test.yml/badge.svg?branch=v0.2.2
-[test-url]: https://github.com/stdlib-js/number-float64-base-set-low-word/actions/workflows/test.yml?query=branch:v0.2.2
+[test-image]: https://github.com/stdlib-js/number-float64-base-set-low-word/actions/workflows/test.yml/badge.svg?branch=main
+[test-url]: https://github.com/stdlib-js/number-float64-base-set-low-word/actions/workflows/test.yml?query=branch:main
 
 [coverage-image]: https://img.shields.io/codecov/c/github/stdlib-js/number-float64-base-set-low-word/main.svg
 [coverage-url]: https://codecov.io/github/stdlib-js/number-float64-base-set-low-word?branch=main
@@ -226,9 +317,9 @@ Copyright &copy; 2016-2024. The Stdlib [Authors][stdlib-authors].
 
 <!-- <related-links> -->
 
-[@stdlib/number/float64/base/get-low-word]: https://github.com/stdlib-js/number-float64-base-get-low-word/tree/esm
+[@stdlib/number/float64/base/get-low-word]: https://github.com/stdlib-js/number-float64-base-get-low-word
 
-[@stdlib/number/float64/base/set-high-word]: https://github.com/stdlib-js/number-float64-base-set-high-word/tree/esm
+[@stdlib/number/float64/base/set-high-word]: https://github.com/stdlib-js/number-float64-base-set-high-word
 
 <!-- </related-links> -->
 
