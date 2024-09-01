@@ -4,7 +4,7 @@
 
 <section class="release" id="unreleased">
 
-## Unreleased (2024-08-03)
+## Unreleased (2024-09-01)
 
 <section class="commits">
 
@@ -143,8 +143,7 @@ No changes reported for this release.
 
 ### BREAKING CHANGES
 
--   [`898e8e4`](https://github.com/stdlib-js/stdlib/commit/898e8e45b2ff0b16c3b7a04786f4e2577422f5b6): update minimum TypeScript version
--   [`898e8e4`](https://github.com/stdlib-js/stdlib/commit/898e8e45b2ff0b16c3b7a04786f4e2577422f5b6): update minimum TypeScript version to 4.1 
+-   [`898e8e4`](https://github.com/stdlib-js/stdlib/commit/898e8e45b2ff0b16c3b7a04786f4e2577422f5b6): update minimum TypeScript version to 4.1
 
     -   To migrate, users should upgrade their TypeScript version to at least version 4.1.
 
