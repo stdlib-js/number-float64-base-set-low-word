@@ -58,7 +58,7 @@
     "@stdlib/math-base-special-round": "^0.3.0",
     "@stdlib/number-float64-base-to-binary-string": "^0.2.2",
     "@stdlib/process-node-version": "^0.2.2",
-    "@stdlib/random-base-randu": "^0.2.1",
+    "@stdlib/random-base-randu": "^0.2.2",
     "@stdlib/string-left-pad": "^0.2.2",
     "@stdlib/utils-try-require": "^0.2.2",
     "proxyquire": "^2.0.0",
